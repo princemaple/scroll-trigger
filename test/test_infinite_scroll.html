@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Scroll Trigger</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.js"></script>
+  <script src="../dist/scroll-trigger.js"></script>
+  <script>
+    angular.module('demo', ['scroll-trigger'])
+    .config(function(ScrollTriggerProvider) {
+      ScrollTriggerProvider.offset(200);
+    })
+    .controller('InfiniteScrollCtrl', function($scope) {
+      $scope.imageUrls = [];
+      $scope.loadMore = function() {
+        $scope.$applyAsync(function() {
+          for (var i = 0; i < 10; ++i) {
+            $scope.imageUrls.push('http://lorempixel.com/g/200/200?_=' + Math.random());
+          }
+        });
+      };
+    });
+  </script>
+  <style>
+    body {
+      min-height: 1000px;
+    }
+    img {
+      display: block;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body ng-app="demo">
+  <section ng-controller="InfiniteScrollCtrl" scroll-trigger="loadMore()" scroll-to-end scroll-persist>
+    <img ng-repeat="imageUrl in imageUrls" ng-src="{{imageUrl}}" alt="some image">
+  </div>
+</body>
+
+</html>
