@@ -93,6 +93,7 @@ angular.module('scroll-trigger', [])
 }])
 .directive('scrollTrigger', ["$parse", "ScrollTrigger", function($parse, ScrollTrigger) {
   return {
+    priority: 1,
     restrict: 'A',
     scope: false,
     link: function(scope, elem, attrs) {
