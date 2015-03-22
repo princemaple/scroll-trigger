@@ -23,6 +23,8 @@
   "homepage": "https://github.com/princemaple/scroll-trigger",
   "devDependencies": {
     "gulp": "latest",
+    "gulp-uglify": "latest",
+    "gulp-rename": "latest",
     "gulp-concat": "latest",
     "gulp-jshint": "latest",
     "gulp-ng-annotate": "latest"
