@@ -49,7 +49,10 @@ angular.module('scroll-trigger', [])
         var screenEdge = screenEdgeFn() + options.offset;
 
         angular.forEach(service.buffer, function(item, id, buffer){
-          if (offsetFn(item.elem).top < screenEdge) {
+          var top = offsetFn(item.elem).top;
+          if (item.options.end) { top += item.elem.offsetHeight; }
+
+          if (top < screenEdge) {
             item.action();
             delete buffer[id];
           }
@@ -61,22 +64,23 @@ angular.module('scroll-trigger', [])
         }
       },
 
-      register: function(elem, action, id) {
+      register: function(elem, action, regOptions) {
         elem = elem[0];
 
-        var elemTop = offsetFn(elem).top,
-            elems;
+        var top = offsetFn(elem).top,
+            id = regOptions.id || ++scrollTriggerIdCounter;
+
+        if (regOptions.end) { top += elem.offsetHeight; }
 
         if (!options.explicitScroll &&
-            (elemTop < initialScreenEdge + options.offset)) {
+            (top < initialScreenEdge + options.offset)) {
           return action();
         }
 
-        id = id || ++scrollTriggerIdCounter;
-
         this.buffer[id] = {
           elem: elem,
-          action: action
+          action: action,
+          options: regOptions
         };
         this.listen();
       }
@@ -95,7 +99,10 @@ angular.module('scroll-trigger', [])
       ScrollTrigger.register(
         elem,
         function() { return $parse(attrs.scrollTrigger)(scope); },
-        attrs.scrollTriggerId
+        {
+          id: attrs.scrollTriggerId,
+          end: 'scrollToEnd' in attrs
+        }
       );
     }
   };
