@@ -52,7 +52,7 @@ angular.module('scroll-trigger', [])
           var top = offsetFn(item.elem).top;
           if (item.options.end) { top += item.elem.offsetHeight; }
 
-          if (top < screenEdge) {
+          if (top <= screenEdge) {
             item.action();
             delete buffer[id];
           }
@@ -73,7 +73,7 @@ angular.module('scroll-trigger', [])
         if (regOptions.end) { top += elem.offsetHeight; }
 
         if (!options.explicitScroll &&
-            (top < initialScreenEdge + options.offset)) {
+            (top <= initialScreenEdge + options.offset)) {
           return action();
         }
 
