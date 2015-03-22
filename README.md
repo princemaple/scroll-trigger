@@ -22,6 +22,11 @@ extracted the logic and generalized it, so it can be used in a much wider range.
 
 **The tests are both `tests` and `examples`**
 
+#### Featured examples
+- `test_img_src_ondemand.html` shows how to reproduce the functionality
+of `img-src-ondemand` module
+- `test_infinite_scroll` shows how to implement infinite scroll with this module
+
 [3]: https://github.com/princemaple/scroll-trigger/tree/master/test
 
 Some real usage instructions will be added later
