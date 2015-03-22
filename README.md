@@ -1,5 +1,6 @@
 # scroll-trigger
-Trigger actions on scroll to a point
+
+> Trigger actions on scroll to a point
 
 This module is based on [img-src-ondemand][1], the other module that I wrote
 some time ago to delay image loading to only when they appear on screen.
