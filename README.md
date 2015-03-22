@@ -14,3 +14,13 @@ extracted the logic and generalized it, so it can be used in a much wider range.
 
 [1]: https://github.com/princemaple/img-src-ondemand
 [2]: https://github.com/sroze/ngInfiniteScroll
+
+### Usage
+
+`How to use` can be found in [tests][3]
+
+**The tests are both `tests` and `examples`**
+
+[3]: https://github.com/princemaple/scroll-trigger/tree/master/test
+
+Some real usage instructions will be added later
