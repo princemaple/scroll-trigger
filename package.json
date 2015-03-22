@@ -1,0 +1,29 @@
+{
+  "name": "scroll-trigger",
+  "version": "1.5.0",
+  "description": "Trigger actions on scroll to a point",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/princemaple/scroll-trigger.git"
+  },
+  "keywords": [
+    "angular",
+    "AngularJS",
+    "scroll"
+  ],
+  "author": "Po Chen <chenpaul914@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/princemaple/scroll-trigger/issues"
+  },
+  "homepage": "https://github.com/princemaple/scroll-trigger",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.4.3",
+    "gulp-jshint": "^1.9.0",
+    "gulp-ng-annotate": "^0.4.3"
+  }
+}
