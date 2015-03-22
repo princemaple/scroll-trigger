@@ -54,7 +54,10 @@ angular.module('scroll-trigger', [])
 
           if (top <= screenEdge) {
             item.action();
-            delete buffer[id];
+
+            if (!item.options.stay) {
+              delete buffer[id];
+            }
           }
         });
 
@@ -74,7 +77,11 @@ angular.module('scroll-trigger', [])
 
         if (!options.explicitScroll &&
             (top <= initialScreenEdge + options.offset)) {
-          return action();
+          if (regOptions.stay) {
+            action();
+          } else {
+            return action();
+          }
         }
 
         this.buffer[id] = {
@@ -102,7 +109,8 @@ angular.module('scroll-trigger', [])
         function() { return $parse(attrs.scrollTrigger)(scope); },
         {
           id: attrs.scrollTriggerId,
-          end: 'scrollToEnd' in attrs
+          end: 'scrollToEnd' in attrs,
+          stay: 'scrollPersist' in attrs
         }
       );
     }
