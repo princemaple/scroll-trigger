@@ -34,7 +34,7 @@ angular.module('scroll-trigger', [])
     var initialScreenEdge = screenEdgeFn(),
         scrollTriggerIdCounter = 0;
 
-    var needAction = function(item, screenEdge) {
+    var needAction = function(item, screenEdge, scrollEvent) {
       var top = offsetFn(item.elem).top;
 
       if (item.end) { top += item.elem.offsetHeight; }
@@ -44,20 +44,20 @@ angular.module('scroll-trigger', [])
 
     var service = {
       buffer: {},
-      listening: false,
 
-      listen: function() {
-        if (this.listening) { return; }
+      listen: function(item) {
+        if (!item.container) { return; }
 
-        angular.element($window).on('scroll', this.listener);
-        this.listening = true;
+        angular.element(item.elem).on('scroll', this.listener);
       },
 
-      update: function() {
+      update: function(scrollEvent) {
+        scrollEvent.stopPropagation();
+
         var screenEdge = screenEdgeFn() + options.offset;
 
         angular.forEach(service.buffer, function(item, id, buffer){
-          if (needAction(item, screenEdge)) {
+          if (needAction(item, screenEdge, scrollEvent)) {
             item.action();
 
             if (!item.stay) {
@@ -65,11 +65,6 @@ angular.module('scroll-trigger', [])
             }
           }
         });
-
-        if (!Object.keys(service.buffer).length) {
-          angular.element($window).off('scroll');
-          service.listening = false;
-        }
       },
 
       register: function(item) {
@@ -84,11 +79,13 @@ angular.module('scroll-trigger', [])
         }
 
         this.buffer[id] = item;
-        this.listen();
+        this.listen(item);
       }
     };
 
     service.listener = throttleFn(service.update, options.interval);
+
+    angular.element($window).on('scroll', service.listener);
 
     return service;
   };
@@ -104,6 +101,7 @@ angular.module('scroll-trigger', [])
         elem: elem[0],
         end: 'scrollToEnd' in attrs,
         stay: 'scrollPersist' in attrs,
+        container: 'scrollContainer' in attrs,
         action: function() {
           return $parse(attrs.scrollTrigger)(scope);
         }
