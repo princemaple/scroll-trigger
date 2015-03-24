@@ -34,7 +34,8 @@
 </head>
 
 <body ng-app="demo">
-  <section ng-controller="InfiniteScrollCtrl" scroll-trigger="loadMore()" trigger-at-end trigger-persist trigger-run>
+  <section ng-controller="InfiniteScrollCtrl" scroll-trigger="loadMore()"
+      trigger-at-end trigger-persist trigger-run>
     <img ng-repeat="imageUrl in imageUrls" ng-src="{{imageUrl}}" alt="some image">
   </div>
 </body>

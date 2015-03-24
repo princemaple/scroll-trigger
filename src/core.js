@@ -61,9 +61,13 @@ angular.module('scroll-trigger', [])
       },
 
       register: function(item) {
-        var id = item.id || ++service.scrollTriggerIdCounter;
+        var id = item.id || ++service.scrollTriggerIdCounter,
+            threshold = thresholdFn();
 
-        if (item.run || offsetFn(item.elem) < thresholdFn()) {
+        if (item.run ||
+            !item.isContainer &&
+            (item.end && offsetFn(item.elem) + elem.offsetHeight < threshold ||
+             !item.end && offsetFn(item.elem) < threshold)) {
           item.action();
 
           if (!item.run || !item.persist) { return; }
