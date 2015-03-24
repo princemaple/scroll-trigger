@@ -34,6 +34,14 @@ angular.module('scroll-trigger', [])
     var initialScreenEdge = screenEdgeFn(),
         scrollTriggerIdCounter = 0;
 
+    var needAction = function(item, screenEdge) {
+      var top = offsetFn(item.elem).top;
+
+      if (item.end) { top += item.elem.offsetHeight; }
+
+      return top < screenEdge + options.offset;
+    };
+
     var service = {
       buffer: {},
       listening: false,
@@ -49,13 +57,10 @@ angular.module('scroll-trigger', [])
         var screenEdge = screenEdgeFn() + options.offset;
 
         angular.forEach(service.buffer, function(item, id, buffer){
-          var top = offsetFn(item.elem).top;
-          if (item.options.end) { top += item.elem.offsetHeight; }
-
-          if (top <= screenEdge) {
+          if (needAction(item, screenEdge)) {
             item.action();
 
-            if (!item.options.stay) {
+            if (!item.stay) {
               delete buffer[id];
             }
           }
@@ -67,28 +72,18 @@ angular.module('scroll-trigger', [])
         }
       },
 
-      register: function(elem, action, regOptions) {
-        elem = elem[0];
+      register: function(item) {
+        var id = item.id || ++scrollTriggerIdCounter;
 
-        var top = offsetFn(elem).top,
-            id = regOptions.id || ++scrollTriggerIdCounter;
-
-        if (regOptions.end) { top += elem.offsetHeight; }
-
-        if (!options.explicitScroll &&
-            (top <= initialScreenEdge + options.offset)) {
-          if (regOptions.stay) {
-            action();
+        if (!options.explicitScroll && needAction(item, initialScreenEdge)) {
+          if (item.stay) {
+            item.action();
           } else {
-            return action();
+            return item.action();
           }
         }
 
-        this.buffer[id] = {
-          elem: elem,
-          action: action,
-          options: regOptions
-        };
+        this.buffer[id] = item;
         this.listen();
       }
     };
@@ -104,15 +99,15 @@ angular.module('scroll-trigger', [])
     restrict: 'A',
     scope: false,
     link: function(scope, elem, attrs) {
-      ScrollTrigger.register(
-        elem,
-        function() { return $parse(attrs.scrollTrigger)(scope); },
-        {
-          id: attrs.scrollTriggerId,
-          end: 'scrollToEnd' in attrs,
-          stay: 'scrollPersist' in attrs
+      ScrollTrigger.register({
+        id: attrs.scrollTriggerId,
+        elem: elem[0],
+        end: 'scrollToEnd' in attrs,
+        stay: 'scrollPersist' in attrs,
+        action: function() {
+          return $parse(attrs.scrollTrigger)(scope);
         }
-      );
+      });
     }
   };
 });
