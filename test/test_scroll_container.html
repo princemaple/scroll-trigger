@@ -22,19 +22,33 @@
     });
   </script>
   <style>
-    body {
-      min-height: 1000px;
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    section {
+      position: absolute;
+      width: 100%;
+      height: 80%;
+      top: 10%;
+      overflow: scroll;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000
     }
     img {
       display: block;
       width: 200px;
       height: 200px;
+      margin: auto;
     }
   </style>
 </head>
 
 <body ng-app="demo">
-  <section ng-controller="InfiniteScrollCtrl" scroll-trigger="loadMore()" trigger-at-end trigger-persist trigger-run>
+  <section ng-controller="InfiniteScrollCtrl" scroll-trigger="loadMore()"
+      scroll-container trigger-at-end trigger-persist trigger-run>
     <img ng-repeat="imageUrl in imageUrls" ng-src="{{imageUrl}}" alt="some image">
   </div>
 </body>

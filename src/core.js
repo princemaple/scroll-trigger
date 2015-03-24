@@ -1,8 +1,7 @@
 angular.module('scroll-trigger', [])
 .constant('scrollTriggerDefaultOptions', {
   offset: 0,
-  interval: 120,
-  explicitScroll: false
+  interval: 120
 })
 .provider('ScrollTrigger', function(scrollTriggerDefaultOptions) {
   var options = angular.copy(scrollTriggerDefaultOptions);
@@ -23,44 +22,38 @@ angular.module('scroll-trigger', [])
     }
   };
 
-  this.explicitScroll = function(customValue) {
-    if (angular.isUndefined(customValue)) {
-      return options.explicitScroll;
-    }
-    options.explicitScroll = !!customValue;
-  };
-
-  this.$get = function($window, offsetFn, screenEdgeFn, throttleFn) {
-    var initialScreenEdge = screenEdgeFn(),
-        scrollTriggerIdCounter = 0;
-
-    var needAction = function(item, screenEdge, scrollEvent) {
-      var top = offsetFn(item.elem).top;
-
-      if (item.end) { top += item.elem.offsetHeight; }
-
-      return top < screenEdge + options.offset;
-    };
-
+  this.$get = function($window, offsetFn, thresholdFn, throttleFn) {
     var service = {
       buffer: {},
+      scrollTriggerIdCounter: 0,
 
       listen: function(item) {
-        if (!item.container) { return; }
-
+        if (!item.isContainer) { return; }
         angular.element(item.elem).on('scroll', this.listener);
+      },
+
+      needAction: function(item, threshold) {
+        var top, elem = item.elem;
+
+        if (item.isContainer && item.toEnd) {
+          return threshold + options.offset >= elem.scrollHeight;
+        } else {
+          top = offsetFn(item.elem).top;
+          if (item.toEnd) { top += elem.offsetHeight; }
+          return top <= threshold + options.offset;
+        }
       },
 
       update: function(scrollEvent) {
         scrollEvent.stopPropagation();
 
-        var screenEdge = screenEdgeFn() + options.offset;
+        var threshold = thresholdFn(scrollEvent.currentTarget);
 
         angular.forEach(service.buffer, function(item, id, buffer){
-          if (needAction(item, screenEdge, scrollEvent)) {
+          if (service.needAction(item, threshold, scrollEvent)) {
             item.action();
 
-            if (!item.stay) {
+            if (!item.persist) {
               delete buffer[id];
             }
           }
@@ -68,14 +61,12 @@ angular.module('scroll-trigger', [])
       },
 
       register: function(item) {
-        var id = item.id || ++scrollTriggerIdCounter;
+        var id = item.id || ++service.scrollTriggerIdCounter;
 
-        if (!options.explicitScroll && needAction(item, initialScreenEdge)) {
-          if (item.stay) {
-            item.action();
-          } else {
-            return item.action();
-          }
+        if (item.run || offsetFn(item.elem) < thresholdFn()) {
+          item.action();
+
+          if (!item.run || !item.persist) { return; }
         }
 
         this.buffer[id] = item;
@@ -99,9 +90,10 @@ angular.module('scroll-trigger', [])
       ScrollTrigger.register({
         id: attrs.scrollTriggerId,
         elem: elem[0],
-        end: 'scrollToEnd' in attrs,
-        stay: 'scrollPersist' in attrs,
-        container: 'scrollContainer' in attrs,
+        toEnd: 'triggerAtEnd' in attrs,
+        persist: 'triggerPersist' in attrs,
+        isContainer: 'scrollContainer' in attrs,
+        run: 'triggerRun' in attrs,
         action: function() {
           return $parse(attrs.scrollTrigger)(scope);
         }

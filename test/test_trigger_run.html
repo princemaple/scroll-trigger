@@ -7,9 +7,6 @@
   <script src="../dist/scroll-trigger.js"></script>
   <script>
     angular.module('demo', ['scroll-trigger'])
-    .config(function(ScrollTriggerProvider) {
-      ScrollTriggerProvider.explicitScroll(true);
-    })
     .controller('TestCtrl', function($scope) {
       $scope.call = function(thing) {
         console.log('called with ' + thing);
@@ -18,12 +15,14 @@
     .run(function() {
       var div = document.createElement('div');
       div.setAttribute('scroll-trigger', 'call(123)');
+      div.setAttribute('trigger-run', true);
       div.setAttribute('ng-controller', 'TestCtrl');
       document.body.appendChild(div);
     });
   </script>
   <style>
     div {
+      margin-top: 2000px;
       width: 200px;
       height: 1000px;
     }
