@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Scroll Trigger</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.js"></script>
+  <script src="../dist/scroll-trigger.js"></script>
+  <script>
+    angular.module('demo', ['scroll-trigger'])
+    .directive('animateMe', function() {
+      return {
+        restrict: 'A',
+        scope: true,
+        link: function(scope, elem) {
+          scope.doAnimate = function() {
+            elem.addClass('move');
+          };
+        }
+      };
+    })
+    .run(function() {
+      for (var i = 0; i < 5; ++i) {
+        var div = document.createElement('div');
+        div.setAttribute('scroll-trigger', 'doAnimate()');
+        div.setAttribute('animate-me', true);
+        document.body.appendChild(div);
+      }
+    });
+  </script>
+  <style>
+    div {
+      width: 200px;
+      height: 1000px;
+      background-color: #f83;
+      transition: all 3s;
+      transform: translate(500px, 0);
+    }
+    .placeholder {
+      background-color: #000;
+    }
+    div:nth-child(2n) {
+      transform: translate(0, 0);
+      background-color: #147;
+    }
+    .move:nth-child(2n+1) {
+      transform: translate(0, 0);
+    }
+    .move:nth-child(2n) {
+      transform: translate(500px, 0);
+    }
+  </style>
+</head>
+
+<body ng-app="demo">
+  <div class="placeholder"></div>
+</body>
+
+</html>
