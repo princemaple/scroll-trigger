@@ -49,7 +49,9 @@ angular.module('scroll-trigger', [])
 
         var threshold = thresholdFn(scrollEvent.currentTarget);
 
-        angular.forEach(service.buffer, function(item, id, buffer){
+        angular.forEach(service.buffer, function(item, id, buffer) {
+          if (item.busy()) { return; }
+
           if (service.needAction(item, threshold, scrollEvent)) {
             item.action();
 
@@ -98,9 +100,10 @@ angular.module('scroll-trigger', [])
         persist: 'triggerPersist' in attrs,
         isContainer: 'scrollContainer' in attrs,
         run: 'triggerRun' in attrs,
-        action: function() {
-          return $parse(attrs.scrollTrigger)(scope);
-        }
+        action: function() { return $parse(attrs.scrollTrigger)(scope); },
+        busy: attrs.triggerActive ?
+          function() { return !$parse(attrs.triggerActive)(scope); } :
+          function() { return false; }
       });
     }
   };
