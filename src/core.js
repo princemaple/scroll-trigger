@@ -100,7 +100,12 @@ angular.module('scroll-trigger', [])
         persist: 'triggerPersist' in attrs,
         isContainer: 'scrollContainer' in attrs,
         run: 'triggerRun' in attrs,
-        action: function() { return $parse(attrs.scrollTrigger)(scope); },
+        action: function() {
+          return $parse(attrs.scrollTrigger)(
+            scope,
+            { $$elem: elem, $$attrs: attrs }
+          );
+        },
         busy: attrs.triggerActive ?
           function() { return !$parse(attrs.triggerActive)(scope); } :
           function() { return false; }
