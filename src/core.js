@@ -64,12 +64,13 @@ angular.module('scroll-trigger', [])
 
       register: function(item) {
         var id = item.id || ++service.scrollTriggerIdCounter,
-            threshold = thresholdFn();
+            threshold = thresholdFn(),
+            offset = offsetFn(item.elem).top;
 
         if (item.run ||
             !item.isContainer &&
-            (item.end && offsetFn(item.elem) + elem.offsetHeight < threshold ||
-             !item.end && offsetFn(item.elem) < threshold)) {
+            (item.end && offset + elem.offsetHeight < threshold ||
+             !item.end && offset < threshold)) {
           item.action();
 
           if (!item.run || !item.persist) { return; }
