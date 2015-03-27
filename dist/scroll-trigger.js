@@ -103,7 +103,7 @@ angular.module('scroll-trigger', [])
         action: function() {
           return $parse(attrs.scrollTrigger)(
             scope,
-            { $$elem: elem, $$attrs: attrs }
+            { $params: { $elem: elem, $attrs: attrs } }
           );
         },
         busy: attrs.triggerActive ?
