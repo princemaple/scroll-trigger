@@ -1,6 +1,6 @@
 {
   "name": "scroll-trigger",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Trigger actions on scroll to a point",
   "scripts": {
     "install": "gulp",
