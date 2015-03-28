@@ -45,7 +45,7 @@ angular.module('scroll-trigger', [])
       },
 
       update: function(scrollEvent) {
-        scrollEvent.stopPropagation();
+        if (scrollEvent) { scrollEvent.stopPropagation(); }
 
         var threshold = thresholdFn(scrollEvent.currentTarget);
 
