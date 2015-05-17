@@ -1,6 +1,7 @@
 # scroll-trigger
 ### ~~Work in progress~~
-### not really WIP anymore but haven't got time to write the docs
+### Not really WIP anymore but haven't got time to write the docs
+### Read the tests as `How to use` :)
 
 > Trigger actions on scroll to a point
 
@@ -25,9 +26,10 @@ extracted the logic and generalized it, so it can be used in a much wider range.
 **The tests are both `tests` and `examples`**
 
 #### Featured examples
-- `test_img_src_ondemand.html` shows how to reproduce the functionality
+- `test_img_src_ondemand` shows how to reproduce the functionality
 of `img-src-ondemand` module
 - `test_infinite_scroll` shows how to implement infinite scroll with this module
+- `test_scroll_to_animate` shows how to implement common animation trigger on scrolling to.
 
 [3]: https://github.com/princemaple/scroll-trigger/tree/master/test
 
