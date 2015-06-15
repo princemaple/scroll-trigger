@@ -16,16 +16,12 @@ doesn't matter where it's put, it can work. After some thought, I realized that
 the logic it requires here is already written in my previous library. Now, I
 extracted the logic and generalized it, so it can be used in a much wider range.
 
-[1]: https://github.com/princemaple/img-src-ondemand
-[2]: https://github.com/sroze/ngInfiniteScroll
-[3]: http://plnkr.co/edit/1gIyjkJbZEnvOZdD7Teu?p=preview
-
 ### Demo
-Here is a plunker [demo][3].
+Here is a plunker [demo][3]. Scroll down slowly to see the images being loaded as you scroll to them.
 
 ### Usage
 
-`How to use` can be found in [tests][3]
+`How to use` can be found in [tests][4]
 
 **The tests are both `tests` and `examples`**
 
@@ -35,6 +31,9 @@ of `img-src-ondemand` module
 - `test_infinite_scroll` shows how to implement infinite scroll with this module
 - `test_scroll_to_animate` shows how to implement common animation trigger on scrolling to.
 
-[3]: https://github.com/princemaple/scroll-trigger/tree/master/test
+[1]: https://github.com/princemaple/img-src-ondemand
+[2]: https://github.com/sroze/ngInfiniteScroll
+[3]: http://plnkr.co/edit/1gIyjkJbZEnvOZdD7Teu?p=preview
+[4]: https://github.com/princemaple/scroll-trigger/tree/master/test
 
 Some real usage instructions will be added later
