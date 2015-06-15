@@ -18,6 +18,10 @@ extracted the logic and generalized it, so it can be used in a much wider range.
 
 [1]: https://github.com/princemaple/img-src-ondemand
 [2]: https://github.com/sroze/ngInfiniteScroll
+[3]: http://plnkr.co/edit/1gIyjkJbZEnvOZdD7Teu?p=preview
+
+### Demo
+Here is a plunker [demo][3].
 
 ### Usage
 
