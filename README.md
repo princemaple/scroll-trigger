@@ -26,18 +26,23 @@ Here is a plunker [demo][3]. Scroll down slowly to see the images being loaded a
 **The tests are both `tests` and `examples`**
 
 #### Examples/Tests
-- `test_img_src_ondemand.html` shows how to reproduce the functionality of `img-src-ondemand` module
-- `test_infinite_scroll.html` shows how to implement infinite scroll with this module
-- `test_scroll_to_animate.html` shows how to implement common animation trigger on scrolling to
-- `test_scroll_to_end.html` shows how to trigger the action at the end instead of at the beginning
-- `test_scroll_container.html` shows how to achieve the same effect with a container instead of `window`
-- `test_interval.html`
-- `test_multiple.html`
-- `test_offset.html`
-- `test_scope.html`
-- `test_scroll.html`
-- `test_trigger_active.html`
-- `test_trigger_run.html`
+- [test_img_src_ondemand](https://github.com/princemaple/scroll-trigger/blob/master/test/test_img_src_ondemand.html)
+shows how to reproduce the functionality of `img-src-ondemand` module
+- [test_infinite_scroll](https://github.com/princemaple/scroll-trigger/blob/master/test/test_infinite_scroll.html)
+shows how to implement infinite scroll with this module
+- [test_scroll_to_animate](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_to_animate.html)
+shows how to implement common animation trigger on scrolling to
+- [test_scroll_to_end](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_to_end.html)
+shows how to trigger the action at the end instead of at the beginning
+- [test_scroll_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_container.html)
+shows how to achieve the same effect with a container instead of `window`
+- [test_interval](https://github.com/princemaple/scroll-trigger/blob/master/test/test_interval.html)
+- [test_multiple](https://github.com/princemaple/scroll-trigger/blob/master/test/test_multiple.html)
+- [test_offset](https://github.com/princemaple/scroll-trigger/blob/master/test/test_offset.html)
+- [test_scope](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scope.html)
+- [test_scroll](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll.html)
+- [test_trigger_active](https://github.com/princemaple/scroll-trigger/blob/master/test/test_trigger_active.html)
+- [test_trigger_run](https://github.com/princemaple/scroll-trigger/blob/master/test/test_trigger_run.html)
 
 [1]: https://github.com/princemaple/img-src-ondemand
 [2]: https://github.com/sroze/ngInfiniteScroll
