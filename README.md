@@ -36,6 +36,7 @@ shows how to implement common animation trigger on scrolling to
 shows how to trigger the action at the end instead of at the beginning
 - [test_scroll_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_container.html)
 shows how to achieve the same effect with a container instead of `window`
+- [test_lazy_img_in_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_lazy_img_in_container.html)
 - [test_interval](https://github.com/princemaple/scroll-trigger/blob/master/test/test_interval.html)
 - [test_multiple](https://github.com/princemaple/scroll-trigger/blob/master/test/test_multiple.html)
 - [test_offset](https://github.com/princemaple/scroll-trigger/blob/master/test/test_offset.html)
