@@ -26,24 +26,21 @@ Here is a plunker [demo][3]. Scroll down slowly to see the images being loaded a
 **The tests are both `tests` and `examples`**
 
 #### Examples/Tests
-- [test_img_src_ondemand](https://github.com/princemaple/scroll-trigger/blob/master/test/test_img_src_ondemand.html)
-shows how to reproduce the functionality of `img-src-ondemand` module
-- [test_infinite_scroll](https://github.com/princemaple/scroll-trigger/blob/master/test/test_infinite_scroll.html)
-shows how to implement infinite scroll with this module
-- [test_scroll_to_animate](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_to_animate.html)
-shows how to implement common animation trigger on scrolling to
-- [test_scroll_to_end](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_to_end.html)
-shows how to trigger the action at the end instead of at the beginning
-- [test_scroll_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_container.html)
-shows how to achieve the same effect with a container instead of `window`
-- [test_lazy_img_in_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_lazy_img_in_container.html) shows how to lazy load images in a container that is not `window`
-- [test_interval](https://github.com/princemaple/scroll-trigger/blob/master/test/test_interval.html) shows how to check and trigger action more / less often
-- [test_offset](https://github.com/princemaple/scroll-trigger/blob/master/test/test_offset.html) shows how to trigger action in advance / with delay in terms of screen position
-- [test_trigger_run](https://github.com/princemaple/scroll-trigger/blob/master/test/test_trigger_run.html) shows how to run the action once on load regardless of the screen position
-- [test_trigger_active](https://github.com/princemaple/scroll-trigger/blob/master/test/test_trigger_active.html) shows how to conditionally trigger action
-- [test_scope](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scope.html) shows scrollTrigger can access the scope on the element, and is able to call functions / retreive data from the scope
-- [test_multiple](https://github.com/princemaple/scroll-trigger/blob/master/test/test_multiple.html)
-- [test_scroll](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll.html)
+|                                                     Example / Test name                                                      |                                                     Functionality                                                     |
+|------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [test_img_src_ondemand](https://github.com/princemaple/scroll-trigger/blob/master/test/test_img_src_ondemand.html)           | shows how to reproduce the functionality of `img-src-ondemand` module                                                 |
+| [test_infinite_scroll](https://github.com/princemaple/scroll-trigger/blob/master/test/test_infinite_scroll.html)             | shows how to implement infinite scroll with this module                                                               |
+| [test_scroll_to_animate](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_to_animate.html)         | shows how to implement common animation trigger on scrolling to                                                       |
+| [test_scroll_to_end](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_to_end.html)                 | shows how to trigger the action at the end instead of at the beginning                                                |
+| [test_scroll_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll_container.html)           | shows how to achieve the same effect with a container instead of `window`                                             |
+| [test_lazy_img_in_container](https://github.com/princemaple/scroll-trigger/blob/master/test/test_lazy_img_in_container.html) | shows how to lazy load images in a container that is not `window`                                                     |
+| [test_interval](https://github.com/princemaple/scroll-trigger/blob/master/test/test_interval.html)                           | shows how to check and trigger action more / less often                                                               |
+| [test_offset](https://github.com/princemaple/scroll-trigger/blob/master/test/test_offset.html)                               | shows how to trigger action in advance / with delay in terms of screen position                                       |
+| [test_trigger_run](https://github.com/princemaple/scroll-trigger/blob/master/test/test_trigger_run.html)                     | shows how to run the action once on load regardless of the screen position                                            |
+| [test_trigger_active](https://github.com/princemaple/scroll-trigger/blob/master/test/test_trigger_active.html)               | shows how to conditionally trigger action                                                                             |
+| [test_scope](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scope.html)                                 | shows scrollTrigger can access the scope on the element, and is able to call functions / retreive data from the scope |
+| [test_multiple](https://github.com/princemaple/scroll-trigger/blob/master/test/test_multiple.html)                           |                                                                                                                       |
+| [test_scroll](https://github.com/princemaple/scroll-trigger/blob/master/test/test_scroll.html)                               |                                                                                                                       |
 
 [1]: https://github.com/princemaple/img-src-ondemand
 [2]: https://github.com/sroze/ngInfiniteScroll
