@@ -3,6 +3,23 @@ angular.module('scroll-trigger', [])
   offset: 0,
   interval: 120
 })
+.factory('ScrollContainer', ["$window", function($window) {
+  return {
+    globalContainer: $window
+  };
+}])
+.directive('scrollContainer', ["ScrollContainer", "ScrollTrigger", function(ScrollContainer, ScrollTrigger) {
+  return {
+    scope: false,
+    link: function(scope, elem, attrs) {
+      if (attrs.scrollContainer == 'global') {
+        angular.element(ScrollContainer.globalContainer).off('scroll');
+        ScrollContainer.globalContainer = elem[0];
+        elem.on('scroll', ScrollTrigger.listener);
+      }
+    }
+  };
+}])
 .provider('ScrollTrigger', ["scrollTriggerDefaultOptions", function(scrollTriggerDefaultOptions) {
   var options = angular.copy(scrollTriggerDefaultOptions);
 
@@ -22,7 +39,7 @@ angular.module('scroll-trigger', [])
     }
   };
 
-  this.$get = ["$window", "offsetFn", "thresholdFn", "throttleFn", function($window, offsetFn, thresholdFn, throttleFn) {
+  this.$get = ["$window", "ScrollContainer", "offsetFn", "thresholdFn", "throttleFn", function($window, ScrollContainer, offsetFn, thresholdFn, throttleFn) {
     var service = {
       buffer: {},
       scrollTriggerIdCounter: 0,
@@ -83,7 +100,7 @@ angular.module('scroll-trigger', [])
 
     service.listener = throttleFn(service.update, options.interval);
 
-    angular.element($window).on('scroll', service.listener);
+    angular.element(ScrollContainer.globalContainer).on('scroll', service.listener);
 
     return service;
   }];
