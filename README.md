@@ -30,7 +30,7 @@ Some demos. Scroll down slowly.
 
 **The tests are both `tests` and `examples`**
 
-See reference is at the end
+See [reference](#reference) is at the end
 
 #### Examples/Tests
 |                                                     Example / Test name                                                      |                                                     Functionality                                                     |
