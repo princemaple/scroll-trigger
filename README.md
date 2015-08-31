@@ -30,6 +30,8 @@ Some demos. Scroll down slowly.
 
 **The tests are both `tests` and `examples`**
 
+See reference is at the end
+
 #### Examples/Tests
 |                                                     Example / Test name                                                      |                                                     Functionality                                                     |
 |------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -52,4 +54,20 @@ Some demos. Scroll down slowly.
 [3]: https://github.com/princemaple/scroll-trigger/tree/master/test
 [4]: http://plnkr.co/edit/JWFntSUoMewTj9hULfD1?p=preview
 
-Some real usage instructions will be added later
+### Reference
+
+```html
+<div scroll-trigger="doSomething()"></div>
+```
+
+#### Available Attributes
+- `trigger-run`: runs the trigger when the page is loaded regardless of the relative position of the element
+- `trigger-at-end`: instead of triggering when the top of the element enters the screen, trigger at the end
+- `trigger-persist`: do not remove the trigger (event listener) after it has been triggered
+- `trigger-container`: instead of listening on `window`, listen on a specific container
+- `trigger-active`: conditionally check screen position
+- `scroll-trigger-id`: manually assign a unique identifier
+
+#### Available configuration
+- `offset`: gives you adjustable space
+- `interval`: gives you adjustable timing
