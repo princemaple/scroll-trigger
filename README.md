@@ -17,11 +17,14 @@ the logic it requires here is already written in my previous library. Now, I
 extracted the logic and generalized it, so it can be used in a much wider range.
 
 ### Demo
-Here is a plunker [demo][3]. Scroll down slowly to see the images being loaded as you scroll to them.
+Some demos. Scroll down slowly.
+[Img Src Ondemand replicate](http://plnkr.co/edit/JWFntSUoMewTj9hULfD1?p=preview)
+[Infinite Scroll implementation](http://plnkr.co/edit/Xmncmy3IaNWUL6h3l1zZ?p=preview)
+
 
 ### Usage
 
-`How to use` can be found in [tests][4]
+`How to use` can be found in [tests][3]
 
 **The tests are both `tests` and `examples`**
 
@@ -44,7 +47,7 @@ Here is a plunker [demo][3]. Scroll down slowly to see the images being loaded a
 
 [1]: https://github.com/princemaple/img-src-ondemand
 [2]: https://github.com/sroze/ngInfiniteScroll
-[3]: http://plnkr.co/edit/1gIyjkJbZEnvOZdD7Teu?p=preview
-[4]: https://github.com/princemaple/scroll-trigger/tree/master/test
+[3]: https://github.com/princemaple/scroll-trigger/tree/master/test
+[4]: http://plnkr.co/edit/JWFntSUoMewTj9hULfD1?p=preview
 
 Some real usage instructions will be added later
