@@ -18,8 +18,10 @@ extracted the logic and generalized it, so it can be used in a much wider range.
 
 ### Demo
 Some demos. Scroll down slowly.
-[Img Src Ondemand replicate](http://plnkr.co/edit/JWFntSUoMewTj9hULfD1?p=preview)
-[Infinite Scroll implementation](http://plnkr.co/edit/Xmncmy3IaNWUL6h3l1zZ?p=preview)
+
+- [Img Src Ondemand replicate](http://plnkr.co/edit/JWFntSUoMewTj9hULfD1?p=preview)
+- [Infinite Scroll implementation](http://plnkr.co/edit/Xmncmy3IaNWUL6h3l1zZ?p=preview)
+- [Scroll to animate](http://plnkr.co/edit/ZkQjCVQWZGay5JEmIvKV?p=preview)
 
 
 ### Usage
