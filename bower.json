@@ -5,9 +5,7 @@
     "Po Chen <chenpaul914@gmail.com>"
   ],
   "description": "Trigger actions on scroll to a point",
-  "main": [
-    "./dist/scroll-trigger.js"
-  ],
+  "main": "./dist/scroll-trigger.js",
   "keywords": [
     "angular",
     "AngularJS",
