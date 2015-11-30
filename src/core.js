@@ -116,7 +116,7 @@ angular.module('scroll-trigger', [])
         elem: elem[0],
         toEnd: 'triggerAtEnd' in attrs,
         persist: 'triggerPersist' in attrs,
-        isContainer: 'scrollContainer' in attrs,
+        isContainer: 'triggerContainer' in attrs,
         run: 'triggerRun' in attrs,
         action: function() {
           return $parse(attrs.scrollTrigger)(
