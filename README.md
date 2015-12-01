@@ -64,8 +64,8 @@ See [reference](#reference) is at the end
 - `trigger-run`: runs the trigger when the page is loaded regardless of the relative position of the element
 - `trigger-at-end`: instead of triggering when the top of the element enters the screen, trigger at the end
 - `trigger-persist`: do not remove the trigger (event listener) after it has been triggered
-- `trigger-container`: instead of listening on `window`, listen on a specific container
 - `trigger-active`: conditionally check screen position
+- `scroll-container`: instead of listening on `window`, listen on a specific container
 - `scroll-trigger-id`: manually assign a unique identifier
 
 #### Available configuration
