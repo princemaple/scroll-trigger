@@ -3,8 +3,7 @@
   "version": "0.5.2",
   "description": "Trigger actions on scroll to a point",
   "scripts": {
-    "install": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,9 @@
     "url": "https://github.com/princemaple/scroll-trigger/issues"
   },
   "homepage": "https://github.com/princemaple/scroll-trigger",
+  "peerDependencies": {
+    "angular": "1.x"
+  },
   "devDependencies": {
     "gulp": "latest",
     "gulp-uglify": "latest",
