@@ -1,6 +1,5 @@
 # scroll-trigger
-### ~~Work in progress~~
-### Not really WIP anymore but haven't got time to write the docs
+
 ### Read the tests as `How to use` :)
 
 > Trigger actions on scroll to a point
