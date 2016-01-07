@@ -1,6 +1,7 @@
 # scroll-trigger
 
 [![npm version](https://badge.fury.io/js/angular-scroll-trigger.svg)](https://badge.fury.io/js/angular-scroll-trigger)
+[![Bower version](https://badge.fury.io/bo/scroll-trigger.svg)](https://badge.fury.io/bo/scroll-trigger)
 
 ### Read the tests as `How to use` :)
 
