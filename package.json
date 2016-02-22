@@ -1,6 +1,6 @@
 {
   "name": "angular-scroll-trigger",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Trigger actions on scroll to a point",
   "main": "dist/scroll-trigger.js",
   "scripts": {
