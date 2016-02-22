@@ -2,6 +2,7 @@
   "name": "angular-scroll-trigger",
   "version": "0.5.2",
   "description": "Trigger actions on scroll to a point",
+  "main": "dist/scroll-trigger.js",
   "scripts": {
     "build": "gulp"
   },
