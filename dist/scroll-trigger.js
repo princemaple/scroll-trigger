@@ -120,10 +120,12 @@ angular.module('scroll-trigger', [])
         isContainer: 'scrollContainer' in attrs,
         run: 'triggerRun' in attrs,
         action: function() {
-          return $parse(attrs.scrollTrigger)(
-            scope,
-            { $params: { $elem: elem, $attrs: attrs } }
-          );
+          return scope.$apply(function() {
+            return $parse(attrs.scrollTrigger)(
+              scope,
+              { $params: { $elem: elem, $attrs: attrs } }
+            ); 
+          });
         },
         busy: attrs.triggerActive ?
           function() { return !$parse(attrs.triggerActive)(scope); } :
