@@ -84,10 +84,11 @@ angular.module('scroll-trigger', [])
             threshold = thresholdFn(),
             offset = offsetFn(item.elem).top;
 
-        if (item.run ||
-            !item.isContainer &&
-            (item.end && offset + elem.offsetHeight < threshold ||
-             !item.end && offset < threshold)) {
+        if (!item.busy() &&
+            (item.run ||
+             !item.isContainer &&
+             (item.end && offset + elem.offsetHeight < threshold ||
+              !item.end && offset < threshold))) {
           item.action();
 
           if (!item.run || !item.persist) { return; }
