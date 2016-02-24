@@ -4,7 +4,8 @@
   "description": "Trigger actions on scroll to a point",
   "main": "dist/scroll-trigger.js",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp compile",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
     "gulp-uglify": "latest",
     "gulp-rename": "latest",
     "gulp-concat": "latest",
-    "gulp-jshint": "latest",
     "gulp-ng-annotate": "latest"
   }
 }
