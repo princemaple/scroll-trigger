@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/princemaple/scroll-trigger",
   "peerDependencies": {
-    "angular": "1.5.8"
+    "angular": "1.5.9"
   },
   "devDependencies": {
     "gulp": "latest",
