@@ -1,5 +1,7 @@
 # scroll-trigger
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/princemaple/scroll-trigger.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/angular-scroll-trigger.svg)](https://badge.fury.io/js/angular-scroll-trigger)
 [![Bower version](https://badge.fury.io/bo/scroll-trigger.svg)](https://badge.fury.io/bo/scroll-trigger)
 
